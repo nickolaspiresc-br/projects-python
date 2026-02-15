@@ -1,21 +1,21 @@
-#um algoritmo que calcula o IMC (Índice de Massa Corporal) de uma pessoa, leia o seu peso e sua altura e imprima na tela sua condição.
+#Calculates user BMI and displays the status.
 
-def imc():
-    peso = float(input("Digite seu peso (kg): "))
-    altura = float(input("Digite sua altura(m): "))
-    form_imc = peso / (altura**2)
+def bmi():
+    weight = float(input("Your weight (kg): "))
+    height = float(input("Your height(m): "))
+    form_bmi = weight / (height**2)
 
-    faixas = [
-        (18.5, "Abaixo do peso ideal"),
-        (25.0, "No peso ideal"),
-        (30.0, "Levemente acima do peso"),
-        (35.0, "Obesidade grau I"),
-        (40.0, "Obesidade grau II")]
+    tracks = [
+        (18.5, "Underweight"),
+        (25.0, "Healthy weight"),
+        (30.0, "Overweight"),
+        (35.0, "Obesity class I"),
+        (40.0, "Obesity class II")]
 
-    for limite, mensagem in faixas:
-        if form_imc < limite:
-            return f"{mensagem}"
+    for limit, message in tracks:
+        if form_bmi < limit:
+            return f"{message}"
     
-    return f"Obesidade grau III"
+    return f"Obesity class III"
 
-print(imc())
+print(bmi())
