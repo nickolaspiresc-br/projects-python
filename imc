@@ -1,0 +1,21 @@
+#um algoritmo que calcula o IMC (Índice de Massa Corporal) de uma pessoa, leia o seu peso e sua altura e imprima na tela sua condição.
+
+def imc():
+    peso = float(input("Digite seu peso (kg): "))
+    altura = float(input("Digite sua altura(m): "))
+    form_imc = peso / (altura**2)
+
+    faixas = [
+        (18.5, "Abaixo do peso ideal"),
+        (25.0, "No peso ideal"),
+        (30.0, "Levemente acima do peso"),
+        (35.0, "Obesidade grau I"),
+        (40.0, "Obesidade grau II")]
+
+    for limite, mensagem in faixas:
+        if form_imc < limite:
+            return f"{mensagem}"
+    
+    return f"Obesidade grau III"
+
+print(imc())
