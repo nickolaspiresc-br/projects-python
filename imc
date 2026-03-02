@@ -1,9 +1,12 @@
-#Calculates user BMI and displays the status.
+#Function that catch user input, calculates user BMI, save and displays the status.
 
 def bmi():
+    global message
+    global weight
+    global height
     weight = float(input("Your weight (kg): "))
     height = float(input("Your height(m): "))
-    form_bmi = weight / (height**2)
+    formula_bmi = weight / (height**2)
 
     tracks = [
         (18.5, "Underweight"),
@@ -13,9 +16,18 @@ def bmi():
         (40.0, "Obesity class II")]
 
     for limit, message in tracks:
-        if form_bmi < limit:
+        if formula_bmi < limit:
             return f"{message}"
-    
-    return f"Obesity class III"
+        
+    return "Obesity class III"
+
+#Start program
 
 print(bmi())
+
+#Create file with data of user
+
+with open("bmi.txt","w",encoding="utf-8") as file:
+    file.write(f"Weight of user: {weight}\n"
+               f"Height of user: {height}\n"
+                f"BMI of user: {message}")
